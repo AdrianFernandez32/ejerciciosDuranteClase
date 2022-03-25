@@ -7,6 +7,12 @@ public class Main {
         Estudiante Manuel = new Estudiante("Manuelito");
         Profesor Carlos = new Profesor("Alemán");
         Materia Matematicas = new Materia();
+        Manuel.setNivelDeEstudios("Licenciatura");
+        Manuel.setNombre("Manuel");
+        Carlos.setNivelDeEstudios("Doctorado");
+        Carlos.setNombre("Carlos");
+        Matematicas.setCreditos(10);
+        Matematicas.setNombre("Matemáticas");
     }
     
 }
