@@ -7,9 +7,9 @@ public class persona {
     String ApellidoP;
     String ApellidoM;
     int Edad;
-    int ID;
+    protected int ID;
 
-    public persona(){
+    public persona(String nombre){
 
     }
     public final void setNombre(String nombre){

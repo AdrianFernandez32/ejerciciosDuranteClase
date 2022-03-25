@@ -1,6 +1,6 @@
 package Laboratorio6.personal;
 
-import Encapsulamiento.encapsulamientoGUI.persona;
+import Laboratorio6.core.persona;
 import java.util.Random;
 
 public class Estudiante extends persona implements Matricula{
@@ -32,6 +32,6 @@ public class Estudiante extends persona implements Matricula{
         return ID = aleatorio.nextInt(100000);
     }
     private void createID(int generateID) {
-
+        System.out.println(ID);
     }
 }

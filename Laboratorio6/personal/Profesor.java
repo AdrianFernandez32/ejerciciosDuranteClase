@@ -1,7 +1,7 @@
 package Laboratorio6.personal;
 import java.util.Random;
 
-import Encapsulamiento.encapsulamientoGUI.persona;
+import Laboratorio6.core.persona;
 
 public class Profesor extends persona implements Matricula{
     Random aleatorio = new Random();
@@ -27,6 +27,6 @@ public class Profesor extends persona implements Matricula{
     }
 
     private void createID(int generateID) {
-    
+        System.out.println(ID);
     }
 }
