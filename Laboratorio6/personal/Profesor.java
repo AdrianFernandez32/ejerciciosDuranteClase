@@ -26,7 +26,7 @@ public class Profesor extends persona implements Matricula{
         return ID = aleatorio.nextInt(100000);
     }
 
-    private void createID(int generateID) {
+    protected void createID(int generateID) {
         System.out.println(ID);
     }
 }

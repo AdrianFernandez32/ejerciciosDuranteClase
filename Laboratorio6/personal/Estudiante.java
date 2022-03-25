@@ -31,7 +31,7 @@ public class Estudiante extends persona implements Matricula{
     public final int generateID(){
         return ID = aleatorio.nextInt(100000);
     }
-    private void createID(int generateID) {
+    protected void createID(int generateID) {
         System.out.println(ID);
     }
 }

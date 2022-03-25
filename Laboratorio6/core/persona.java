@@ -3,10 +3,10 @@ import java.util.Random;
 
 public class persona {
     Random aleatorio = new Random();
-    String Nombre;
-    String ApellidoP;
-    String ApellidoM;
-    int Edad;
+    protected String Nombre;
+    protected String ApellidoP;
+    protected String ApellidoM;
+    protected int Edad;
     protected int ID;
 
     public persona(String nombre){
