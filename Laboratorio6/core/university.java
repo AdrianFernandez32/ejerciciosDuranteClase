@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import AL.estudiante;
 import Laboratorio6.personal.Estudiante;
 import java.util.Scanner;
+
+import javax.swing.plaf.synth.SynthScrollBarUI;
+
 import java.io.FileWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -23,15 +26,25 @@ public class university {
     final String data = "C:\\Users\\oscar\\Documents\\GitHub\\ejerciciosDuranteClase\\Laboratorio6\\resources\\datos.dat";
     final String conf = "C:\\Users\\oscar\\Documents\\GitHub\\ejerciciosDuranteClase\\Laboratorio6\\resources\\Settings.conf";
 
-    university() throws FileNotFoundException{
+    university() throws IOException, FileNotFoundException{
         file = new File(conf);
         read = new Scanner(file);
-        if(file.exists()){
-            ID = read.nextInt();
+        
+        if(!file.exists()){
+            if(!file.createNewFile()){
+                System.out.println("El archivo no se pudo crear :c");
+            }else{
+                ID = 0;
+                write = new FileWriter(file, false);
+                write.write(String.valueOf(ID)+ '\n');
+                write.close();
+            }
+        }else{
+            read = new Scanner(file);
+            ID = Integer.valueOf(read.nextLine());
+            read.close();
             System.out.println(ID);
         }
-        read.close();
-        file = new File(data);
     }
     public void addStudent(){
         Estudiante E = new Estudiante(NombreUniversidad);
