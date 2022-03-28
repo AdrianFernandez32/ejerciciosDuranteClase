@@ -95,12 +95,11 @@ EstudiantesRegistrados.remove(index)
 
     }    
     private void saveID(Estudiante E) throws IOException{
+        file = new File(conf);
         if(!file.exists()){
-            if(!file.createNewFile()){
-                System.out.println("El acrchivo no se pudo crear UgU");
-            }
+            write = new FileWriter(file);
+            write.write(ID);
+            write.close();
         }
-    write = new FileWriter(file);
-    write.write(E.ID);
     }
 }
