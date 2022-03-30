@@ -47,7 +47,7 @@ public class university {
         }
     }
     public void addStudent(){
-        Estudiante E = new Estudiante(NombreUniversidad);
+        Estudiante E = new Estudiante();
         read = new Scanner(System.in);
         System.out.println("Nombre: ");
         E.Nombre = read.nextLine();
@@ -92,7 +92,21 @@ EstudiantesRegistrados.remove(index)
         write.write('\n');
         write.close();
     }
-    private void loadStudents(Estudiante E) throws IOException{
+    private void loadStudents(int id) throws FileNotFoundException{
+        Estudiante E = new Estudiante();
+        file = new File(data);
+        read = new Scanner(file);
+        int user_ID = 0;
+        while(read.hasNextLine() && user_ID!=id){
+            user_ID = E.ID = Integer.valueOf(read.nextInt());
+            E.Nombre = read.nextLine();
+            E.ApellidoP = read.nextLine();
+            E.ApellidoM = read.nextLine();
+            E.Edad = Integer.valueOf(read.nextLine());
+        }
+        read.close();
+    }
+        /*
         if(!file.exists()){
             if(!file.createNewFile()){
                 System.out.println("El acrchivo no se pudo crear UgU");
@@ -103,14 +117,14 @@ EstudiantesRegistrados.remove(index)
         read.next(E.ApellidoP);
         read.next(E.ApellidoM);
         read.next(String.valueOf(E.Edad));
-    }
+    }*/
     public void listAllStudents(){
-
+        
     }    
     private void saveID(Estudiante E) throws IOException{
         file = new File(conf);
         if(!file.exists()){
-            write = new FileWriter(file);
+            write = new FileWriter(file,false);
             write.write(ID);
             write.close();
         }

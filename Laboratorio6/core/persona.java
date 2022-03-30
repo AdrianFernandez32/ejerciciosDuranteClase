@@ -8,6 +8,9 @@ public class persona {
     protected String ApellidoM;
     protected int Edad;
     protected int ID;
+    public persona(){
+
+    }
 
     public persona(String nombre){
 

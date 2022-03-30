@@ -12,6 +12,9 @@ public class Estudiante extends persona implements Matricula{
         setNombre(Nombre);
         createID(generateID());
     }
+    public Estudiante() {
+        
+    }
     /*public Estudiante(String Nombre){
         setNombre(Nombre);
         
