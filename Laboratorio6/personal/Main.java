@@ -35,8 +35,10 @@ public class Main {
         System.out.println(Programacion.getNombre());
         
         university cetys = new university();
-        cetys.addStudent(Daniel);
-        cetys.addStudent();
+        //cetys.addStudent(Daniel);
+        //cetys.addStudent();
+        //cetys.saveID();
+        cetys.removeStudent(3);
     }
     
 }

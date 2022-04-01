@@ -7,6 +7,7 @@ import Laboratorio6.personal.Estudiante;
 import java.util.Scanner;
 
 import javax.swing.plaf.synth.SynthScrollBarUI;
+import javax.swing.plaf.synth.SynthStyleFactory;
 
 import java.io.FileWriter;
 import java.io.File;
@@ -124,12 +125,15 @@ public class university {
             System.out.println(E.getID());
         }
     }    
-    private void saveID(Estudiante E) throws IOException{
+    public void saveID() throws IOException{
         file = new File(conf);
-        if(!file.exists()){
+        if(file.exists()){
             write = new FileWriter(file,false);
-            write.write(ID);
+            write.write(String.valueOf(ID));
             write.close();
+        }else{
+            System.out.println("Error");
         }
+        
     }
 }
