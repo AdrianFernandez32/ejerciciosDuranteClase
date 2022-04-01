@@ -22,13 +22,13 @@ public class university {
     String Settings = ""; //Ubicacion del archivo con 0
     File file;
     FileWriter write;
+    //read.ID
 
     final String data = "C:\\Users\\oscar\\Documents\\GitHub\\ejerciciosDuranteClase\\Laboratorio6\\resources\\datos.dat";
     final String conf = "C:\\Users\\oscar\\Documents\\GitHub\\ejerciciosDuranteClase\\Laboratorio6\\resources\\Settings.conf";
 
-    university() throws IOException, FileNotFoundException{
+    public university() throws IOException, FileNotFoundException{
         file = new File(conf);
-        read = new Scanner(file);
         
         if(!file.exists()){
             if(!file.createNewFile()){
@@ -46,7 +46,7 @@ public class university {
             System.out.println(ID);
         }
     }
-    public void addStudent(){
+    public void addStudent() throws IOException{
         Estudiante E = new Estudiante();
         read = new Scanner(System.in);
         System.out.println("Nombre: ");
@@ -59,19 +59,29 @@ public class university {
         E.Edad = Integer.valueOf(read.nextLine());
         E.ID = ID++;
         EstudiantesRegistrados.add(E);
+        saveStudents(E);
     }
-    public void addStudent(Estudiante E){
+    public void addStudent(Estudiante E) throws IOException{
         E.ID = ID++;
         EstudiantesRegistrados.add(E);
+        saveStudents(E);
         //Se agrega el estudiante la Array
     }
-    public void removeStudent(int id){
+    public boolean removeStudent(int id){
         for(int i=0; i<EstudiantesRegistrados.size(); i++){
-            if(id==EstudiantesRegistrados.)
+            if(id==EstudiantesRegistrados.get(i).ID){
+                EstudiantesRegistrados.remove(i);
+                return true;
+            }
         }
-EstudiantesRegistrados.remove(index)
+        return false;
+/*
+        for(Estudiante e : EstudiantesRegistrados)
+            if(e.ID==id)
+                EstudiantesRegistrados.remove(e);*/
     }
     public void saveStudents(Estudiante E) throws IOException{
+        file = new File(data);
         if(!file.exists()){
             if(!file.createNewFile()){
                 System.out.println("El acrchivo no se pudo crear UgU");
@@ -106,20 +116,13 @@ EstudiantesRegistrados.remove(index)
         }
         read.close();
     }
-        /*
-        if(!file.exists()){
-            if(!file.createNewFile()){
-                System.out.println("El acrchivo no se pudo crear UgU");
-            }
-        }
-        read.next(String.valueOf(ID));
-        read.next(E.Nombre);
-        read.next(E.ApellidoP);
-        read.next(E.ApellidoM);
-        read.next(String.valueOf(E.Edad));
-    }*/
     public void listAllStudents(){
-        
+        for (Estudiante E : EstudiantesRegistrados) {
+            System.out.println(E.getNombre());
+            System.out.println(E.getApellidos());
+            System.out.println(E.getEdad());
+            System.out.println(E.getID());
+        }
     }    
     private void saveID(Estudiante E) throws IOException{
         file = new File(conf);
