@@ -1,14 +1,10 @@
 package Laboratorio6.core;
 
 import java.util.ArrayList;
-
-import AL.estudiante;
 import Laboratorio6.personal.Estudiante;
 import java.util.Scanner;
-
 import javax.swing.plaf.synth.SynthScrollBarUI;
 import javax.swing.plaf.synth.SynthStyleFactory;
-
 import java.io.FileWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -68,19 +64,35 @@ public class university {
         saveStudents(E);
         //Se agrega el estudiante la Array
     }
-    public boolean removeStudent(int id){
+    public boolean removeStudent(int id) throws IOException{
+        write = new FileWriter(file,false);
         for(int i=0; i<EstudiantesRegistrados.size(); i++){
             if(id==EstudiantesRegistrados.get(i).ID){
                 EstudiantesRegistrados.remove(i);
+                for(Estudiante E: EstudiantesRegistrados){
+                    write.write(String.valueOf(E.getID()));
+                    write.write('\n');
+                    write.write(E.Nombre);
+                    write.write('\n');
+                    write.write(E.ApellidoP);
+                    write.write('\n');
+                    write.write(E.ApellidoM);
+                    write.write('\n');
+                    write.write(String.valueOf(E.Edad));
+                    write.write('\n');
+                    write.write("---------------------");
+                    write.write('\n');
+                }
+                write.close();
                 return true;
             }
         }
         return false;
-/*
+    }/*
         for(Estudiante e : EstudiantesRegistrados)
             if(e.ID==id)
                 EstudiantesRegistrados.remove(e);*/
-    }
+    
     public void saveStudents(Estudiante E) throws IOException{
         file = new File(data);
         if(!file.exists()){
