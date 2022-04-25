@@ -1,4 +1,5 @@
 package Interfaz;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -6,7 +7,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Main{
+public class Main {
     public static void main(String[] args) {
         JFrame MainFrame = new JFrame("Mi primer GUI");
         MainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -20,13 +21,13 @@ public class Main{
 
         JButton boton1 = new JButton("Saludar");
         boton1.setBounds(10, 30, 80, 20);
-        boton1.addActionListener(new ActionListener(){
+        boton1.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 Texto1.setText("Hola " + Nombre.getText());
             }
         });
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         JLabel textt = new JLabel("Si bueno hola");
         textt.setBounds(10, 40, 80, 20);
 
@@ -38,9 +39,9 @@ public class Main{
 
         JButton botonP = new JButton("Fusión");
         botonP.setBounds(10, 70, 200, 10);
-        boton1.addActionListener(new ActionListener(){
+        boton1.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent a){
+            public void actionPerformed(ActionEvent a) {
                 textt.setText(frase1.getText() + frase2.getText());
             }
         });
@@ -58,5 +59,5 @@ public class Main{
         MainFrame.setLayout(null);
         MainFrame.setVisible(true);
     }
-    
+
 }
